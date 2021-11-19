@@ -5,7 +5,11 @@ import androidx.lifecycle.ViewModel
 import com.example.criminalintent.CriminalIntent
 
 class MainViewModel : ViewModel() {
-  val criminalIntent: MutableLiveData<CriminalIntent> by lazy {
+  val newCriminalIntent: MutableLiveData<CriminalIntent> by lazy {
+    MutableLiveData<CriminalIntent>()
+  }
+
+  val editCriminalIntent: MutableLiveData<CriminalIntent> by lazy {
     MutableLiveData<CriminalIntent>()
   }
 }

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.criminalintent.CriminalIntent
 import com.example.criminalintent.CriminalIntentAdapter
+import com.example.criminalintent.R
 import com.example.criminalintent.databinding.MainFragmentBinding
 import java.util.*
 
@@ -32,14 +33,15 @@ class MainFragment : Fragment() {
   override fun onActivityCreated(savedInstanceState: Bundle?) {
     super.onActivityCreated(savedInstanceState)
     viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-    init()
-  }
 
-  private fun init() = with(binding) {
-    rcView.layoutManager = LinearLayoutManager(activity)
-    rcView.adapter = adapter
-    bAddIntent.setOnClickListener {
-      adapter.addItem(CriminalIntent("It's title", 1, Date(), true))
+    binding.apply {
+      rcView.layoutManager = LinearLayoutManager(activity)
+      rcView.adapter = adapter
+      bAddIntent.setOnClickListener {
+        requireActivity().supportFragmentManager.beginTransaction()
+          .replace(R.id.container, CriminalIntentPageFragment.newInstance())
+          .commitNow()
+      }
     }
   }
 

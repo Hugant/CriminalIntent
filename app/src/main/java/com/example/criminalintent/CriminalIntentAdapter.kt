@@ -1,5 +1,6 @@
 package com.example.criminalintent
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +38,7 @@ class CriminalIntentAdapter: RecyclerView.Adapter<CriminalIntentAdapter.Criminal
     return criminalIntents.size
   }
 
+  @SuppressLint("NotifyDataSetChanged")
   fun addItem(criminalIntent: CriminalIntent) {
     criminalIntents.add(criminalIntent)
     notifyDataSetChanged()

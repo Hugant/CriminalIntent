@@ -9,7 +9,7 @@ class MainViewModel : ViewModel() {
     MutableLiveData<CriminalIntent>()
   }
 
-//  val editCriminalIntent: MutableLiveData<CriminalIntent> by lazy {
-//    MutableLiveData<CriminalIntent>()
-//  }
+  val editCriminalIntent: MutableLiveData<CriminalIntent> by lazy {
+    MutableLiveData<CriminalIntent>()
+  }
 }

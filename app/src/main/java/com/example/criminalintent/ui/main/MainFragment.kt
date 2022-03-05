@@ -1,5 +1,6 @@
 package com.example.criminalintent.ui.main
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -48,13 +49,13 @@ class MainFragment : Fragment() {
           .commit()
       }
     }
+  }
 
-    viewModel.newCriminalIntent.removeObservers(activity as LifecycleOwner)
-
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
     viewModel.newCriminalIntent.observe(activity as LifecycleOwner, {
       it?.let {
         adapter.addItem(it)
-        Log.i("My tag", "observe used")
       }
     })
   }
